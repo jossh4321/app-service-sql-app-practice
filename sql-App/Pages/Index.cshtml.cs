@@ -7,17 +7,24 @@ namespace sql_App.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
-        public List<Product> productList; 
+        //private readonly ILogger<IndexModel> _logger;
+        public List<Product> productList;
+        private IProductService productService;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public IndexModel(IProductService service)
+        {
+            productService = service;
+        }
+
+
+        /*public IndexModel(ILogger<IndexModel> logger)
         {
             _logger = logger;
-        }
+        }*/
 
         public void OnGet()
         {
-            ProductService productService = new ProductService();
+            //ProductService productService = new ProductService();
             productList = productService.getAllProducts();
         }
     }
