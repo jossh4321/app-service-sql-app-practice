@@ -1,0 +1,33 @@
+﻿@page
+@using sql_App.Models
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <h3> THIS A PRODUCT LIST IMPLEMENTATION</h3>
+    <table class="table table-stripped">
+        <thead>
+            <tr>
+                <th scope="col">PRODUCT ID</th>
+                <th scope="col">PRODUCT NAME</th>
+                <th scope="col">QUANTITY</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(Product product in @Model.productList)
+            {            
+                <tr>
+                    <td scope="row">@product.ProductID</td>
+                    <td>@product.ProductName</td>
+                    <td>@product.Quantity</td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">Hi everyone</a>.</p>
+
+</div>
